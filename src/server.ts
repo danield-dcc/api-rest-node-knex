@@ -1,15 +1,18 @@
-import fastify from "fastify"
-import { env } from "./env/index.ts"
-import { transactionsRoutes } from "./routes/transactions.ts"
+import cookie from '@fastify/cookie'
+import fastify from 'fastify'
+import { env } from './env/index.ts'
+import { transactionsRoutes } from './routes/transactions.ts'
 
 const app = fastify({
   logger: true,
 })
 
+app.register(cookie)
+
 app.register(transactionsRoutes, {
-  prefix: "transactions",
+  prefix: 'transactions',
 })
 
 app.listen({ port: env.PORT }).then(() => {
-  console.log("HTTP Server running on port 3333!")
+  console.log('HTTP Server running on port 3333!')
 })
