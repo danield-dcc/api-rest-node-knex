@@ -26,7 +26,10 @@
   },
   "javascript": {
     "formatter": {
-      "semicolons": "asNeeded"
+      "semicolons": "asNeeded",
+      "indentStyle": "space",
+      "quoteStyle": "single",
+      "lineWidth": 80
     }
   },
   "assist": {
