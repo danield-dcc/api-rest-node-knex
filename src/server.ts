@@ -1,6 +1,7 @@
 import crypto from 'node:crypto'
 import fastify from "fastify"
 import { knex } from "./database.js"
+import { env } from './env/index.ts'
 
 const app = fastify({
   logger: true,
@@ -18,6 +19,6 @@ app.get("/hello", async (_request, reply) => {
   reply.send(transaction)
 })
 
-app.listen({ port: 3333 }).then(() => {
+app.listen({ port: env.PORT }).then(() => {
   console.log("HTTP Server running on port 3333!")
 })
